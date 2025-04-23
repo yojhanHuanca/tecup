@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro Tecsup</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+    <div class="logo">
+        <img src="https://tse4.mm.bing.net/th?id=OIP.xGfz2Mvh6u_SISMJ-aDhWwHaEK&pid=Api&P=0&h=180" alt="Logo Tecsup" />
+    </div>
+
+    <div class="container">
+        <h1>Registro</h1>
+        <form id="formulario">
+            <input type="text" id="nombre" placeholder="Nombre completo" required />
+            <input type="email" id="email" placeholder="Correo electrónico" required />
+            <input type="text" id="carrera" placeholder="Carrera" required />
+            <input type="text" id="id" placeholder="Código de estudiante" required />
+            <button type="submit">Generar Codigo</button>
+        </form>
+        <div id="qrcode"></div> <!-- Aquí se mostrará la imagen -->
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Bienvenido a la Feria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            color: #0f0101;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
+            position: relative;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(8px);
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: #0e0b0b;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #0f1111;
+        }
+
+        strong {
+            color: #fff176;
+        }
+
+        .alert-btn {
+            background-color: #d32f2f;
+            /* Rojo oscuro para urgencia */
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+
+        .alert-btn:hover {
+            background-color: #b71c1c;
+            /* Rojo más oscuro al hacer hover */
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="mensaje">
+        <!-- El mensaje se generará aquí -->
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const nombre = params.get("nombre");
+        const email = params.get("email");
+        const carrera = params.get("carrera");
+        const id = params.get("id");
+
+        const mensajeDiv = document.getElementById("mensaje");
+
+        if (nombre && email && carrera && id) {
+            mensajeDiv.innerHTML = `
+                <h1>¡Bienvenido, ${nombre}!</h1>
+                <p><strong>Código:</strong> ${id}</p>
+                <p><strong>Carrera:</strong> ${carrera}</p>
+                <p><strong>Correo:</strong> ${email}</p>
+                <p>✅ Te has registrado exitosamente para la <strong>Feria Tecnológica 2025</strong>.<br> Usa tu código para acceder al evento.</p>
+            `;
+        } else {
+            mensajeDiv.innerHTML = `
+                <h1>😢 Error al recibir tus datos</h1>
+                <p>Verifica que hayas escaneado un código válido.</p>
+            `;
+        }
+
+        function mostrarAlerta() {
+            alert("¡EMERGENCIA! Si necesitas ayuda, comunícate con el personal de seguridad de inmediato.");
+        }
+    </script>
+
+    <button class="alert-btn" onclick="mostrarAlerta()">¡BOTÓN DE EMERGENCIA!</button>
+</body>
+
+</html>
